@@ -1,6 +1,7 @@
 import React from 'react'
 import { Platform, StatusBar, StyleSheet, View } from 'react-native'
-import AppNavigation from './src/navigations/AppNavigation'
+import { NavigationContainer } from '@react-navigation/native'
+import RootNavigation from './src/navigation/RootNavigation'
 
 
 
@@ -10,7 +11,9 @@ const App = () => {
     <View style={styles.container} >
       <StatusBar translucent barStyle="dark-content" backgroundColor="transparent" />
       <View style={[styles.statusBarArea, { height: statusBarHeight }]} />
-      <AppNavigation />
+      <NavigationContainer>
+        <RootNavigation />
+      </NavigationContainer>
     </View>
   )
 }
@@ -18,7 +21,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ff00ff"
+    // backgroundColor: "#ff00ff"
   },
   statusBarArea: {
     backgroundColor: "#f0ffff"
