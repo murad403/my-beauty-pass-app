@@ -1,45 +1,28 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from 'react'
+import { Platform, StatusBar, StyleSheet, View } from 'react-native'
+import AppNavigation from './src/navigations/AppNavigation'
 
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
 
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
 
+const App = () => {
+  const statusBarHeight = Platform.OS === "android" ? StatusBar.currentHeight : 0
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
+    <View style={styles.container} >
+      <StatusBar translucent barStyle="dark-content" backgroundColor="transparent" />
+      <View style={[styles.statusBarArea, { height: statusBarHeight }]} />
+      <AppNavigation />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "#ff00ff"
   },
-});
+  statusBarArea: {
+    backgroundColor: "#f0ffff"
+  }
+})
 
-export default App;
+export default App
