@@ -6,7 +6,7 @@ const Stack = createStackNavigator();
 
 const RootNavigation = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name='MainTabs' component={AppNavigation}/>
     </Stack.Navigator>
   )

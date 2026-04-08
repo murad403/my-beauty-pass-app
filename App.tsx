@@ -21,7 +21,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // backgroundColor: "#ff00ff"
+    backgroundColor: "#ff00ff"
   },
   statusBarArea: {
     backgroundColor: "#f0ffff"
